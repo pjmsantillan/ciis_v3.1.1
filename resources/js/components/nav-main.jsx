@@ -16,8 +16,8 @@ export function NavMain({ items = [] }) {
                     if (!hasSubmenu) {
                         return (
                             <SidebarMenuItem key={item.title}>
-                                <SidebarMenuButton
-                                    asChild isActive={item.href === page.url}
+                                <SidebarMenuButton className={['h-10', item.href === page.url ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white' : '']}
+                                    asChild
                                     tooltip={{ children: item.title }}
                                 >
                                     <Link href={item.href} prefetch>
@@ -36,7 +36,7 @@ export function NavMain({ items = [] }) {
                             className="group/collapsible"
                         >
                             <SidebarMenuItem>
-                                <CollapsibleTrigger asChild>
+                                <CollapsibleTrigger asChild className={['h-10', item.href === page.url ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white' : 'hover:bg-green-500']}>
                                     <SidebarMenuButton tooltip={item.title}>
                                         {item.icon && <item.icon />}
                                         <span>{item.title}</span>
