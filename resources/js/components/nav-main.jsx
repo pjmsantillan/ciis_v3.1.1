@@ -16,7 +16,10 @@ export function NavMain({ items = [] }) {
                     if (!hasSubmenu) {
                         return (
                             <SidebarMenuItem key={item.title}>
-                                <SidebarMenuButton className={['h-10', item.href === page.url ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white' : '']}
+                                <SidebarMenuButton className={['h-10',
+                                    item.href === page.url
+                                        ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white'
+                                        : 'bg-gradient-to-r hover:from-blue-950 hover:to-blue-800 transition duration-200 hover:text-white']}
                                     asChild
                                     tooltip={{ children: item.title }}
                                 >
@@ -32,11 +35,14 @@ export function NavMain({ items = [] }) {
                         <Collapsible
                             key={item.title}
                             asChild
-                            defaultOpen={item.isActive}
                             className="group/collapsible"
                         >
                             <SidebarMenuItem>
-                                <CollapsibleTrigger asChild className={['h-10', item.href === page.url ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white' : 'hover:bg-green-500']}>
+                                <CollapsibleTrigger asChild
+                                    className={['h-10',
+                                        item.href === page.url
+                                            ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white'
+                                            : 'bg-gradient-to-r hover:from-blue-950 hover:to-blue-800 transition duration-200 hover:!text-white']}>
                                     <SidebarMenuButton tooltip={item.title}>
                                         {item.icon && <item.icon />}
                                         <span>{item.title}</span>
@@ -47,10 +53,12 @@ export function NavMain({ items = [] }) {
                                     <SidebarMenuSub>
                                         {item.items?.map((subItem) => (
                                             <SidebarMenuSubItem key={subItem.title}>
-                                                <SidebarMenuSubButton asChild>
-                                                    <a href={subItem.url}>
+                                                <SidebarMenuSubButton asChild className={subItem.href === page.url
+                                                    ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white'
+                                                    : 'bg-gradient-to-r hover:from-blue-950 hover:to-blue-800 transition duration-200 hover:text-white'}>
+                                                    <Link href={subItem.href} prefetch>
                                                         <span>{subItem.title}</span>
-                                                    </a>
+                                                    </Link>
                                                 </SidebarMenuSubButton>
                                             </SidebarMenuSubItem>
                                         ))}
