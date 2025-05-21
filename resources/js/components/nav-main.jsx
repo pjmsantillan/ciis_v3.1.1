@@ -19,7 +19,7 @@ export function NavMain({ items = [] }) {
                                 <SidebarMenuButton className={['h-10',
                                     item.href === page.url
                                         ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white'
-                                        : 'bg-gradient-to-r hover:from-blue-950 hover:to-blue-800 transition duration-200 hover:text-white']}
+                                        : 'bg-gradient-to-r hover:from-blue-950 hover:to-blue-800 transition duration-300 hover:text-white']}
                                     asChild
                                     tooltip={{ children: item.title }}
                                 >
@@ -42,7 +42,7 @@ export function NavMain({ items = [] }) {
                                     className={['h-10',
                                         item.href === page.url
                                             ? 'bg-gradient-to-r from-blue-950 to-blue-800 text-white hover:text-white'
-                                            : 'bg-gradient-to-r hover:from-blue-950 hover:to-blue-800 transition duration-200 hover:!text-white']}>
+                                            : 'bg-gradient-to-r hover:from-blue-950 hover:to-blue-800 transition duration-300 hover:!text-white']}>
                                     <SidebarMenuButton tooltip={item.title}>
                                         {item.icon && <item.icon />}
                                         <span>{item.title}</span>
