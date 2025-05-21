@@ -1,8 +1,8 @@
 import AppLayout from "@/layouts/app-layout";
-import { PlaceholderPattern } from "@/components/ui/placeholder-pattern";
+import DataTable from "@/components/data-table";
 import { Head } from "@inertiajs/react";
-import DataTable from "./data-table";
 import { columns } from "./columns";
+import CreateUserDialog from "./dialog/create";
 
 const breadcrumbs = [
     {
@@ -17,7 +17,9 @@ export default function UserManagement({ users }) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="User Management" />
-            <DataTable columns={columns} data={data} />
+            <DataTable columns={columns} data={data} action={
+                <CreateUserDialog />
+            } />
         </AppLayout>
     )
 }

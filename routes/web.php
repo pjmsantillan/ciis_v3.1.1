@@ -15,11 +15,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     // User Management
-    Route::get('user-management', [UserManagementController::class, 'index'])->name('user-management');
-    
+    Route::group(['prefix' => 'user-management'], function () {
+        Route::get('/', [UserManagementController::class, 'index'])->name('user-management');
+        Route::put('update/{user}', [UserManagementController::class, 'updateStatus'])->name('user-management.updateStatus');
+    });
+
     // Role Management
     Route::get('role-management', [RoleManagementController::class, 'index'])->name('role-management');
 });
 
-require __DIR__.'/settings.php';
-require __DIR__.'/auth.php';
+require __DIR__ . '/settings.php';
+require __DIR__ . '/auth.php';
