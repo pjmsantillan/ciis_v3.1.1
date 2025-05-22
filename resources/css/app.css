@@ -190,3 +190,31 @@
     @apply bg-background text-foreground;
     }
 }
+
+
+
+/* Target both regular and inline editable areas */
+.ck-editor__editable:not(.ck-comment__input) {
+    min-height: 200px;  /* Minimum height */
+    height: 65vh;       /* Your desired height */
+    max-height: 800px;  /* Maximum height */
+    overflow-y: auto;   /* Enable scrolling */
+    
+}
+.ck-editor__editable {
+    padding-left: 25px !important; /* Make room for line numbers */
+}
+.dark .ck.ck-editor {
+    --ck-color-base-background: var(--background, #1a1a1a);
+    --ck-color-text: var(--foreground, #e5e7eb);
+    --ck-color-toolbar-background: var(--card, #1e1e1e);
+    --ck-color-toolbar-border: var(--border, #333);
+    --ck-color-button-default-hover-background: var(--accent, #2d2d2d);
+    --ck-color-button-default-active-background: var(--muted, #3d3d3d);
+    --ck-color-button-on-background: var(--primary, #60a5fa);
+    --ck-color-button-on-hover-background: var(--primary-foreground, #3b82f6);
+    --ck-color-list-background: var(--card, #1e1e1e);
+    --ck-color-list-button-hover-background: var(--accent, #2d2d2d);
+    --ck-color-dropdown-panel-background: var(--popover, #1e1e1e);
+}
+

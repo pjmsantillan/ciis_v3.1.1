@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RoleManagementController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\TemplateManagementController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -22,6 +23,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Role Management
     Route::get('role-management', [RoleManagementController::class, 'index'])->name('role-management');
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('templates',TemplateManagementController::class);
 });
 
 require __DIR__ . '/settings.php';

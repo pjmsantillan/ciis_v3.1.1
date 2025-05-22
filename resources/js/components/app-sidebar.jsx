@@ -3,7 +3,7 @@ import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { Link } from '@inertiajs/react';
-import { Home, UserCog2, Users2 } from 'lucide-react';
+import { Files, Home, Settings, UserCog2, Users2 } from 'lucide-react';
 import AppLogo from './app-logo';
 import { SearchDialog } from './search-dialog';
 
@@ -22,6 +22,17 @@ const mainNavItems = [
         title: 'Role Management',
         href: '/role-management',
         icon: UserCog2,
+    },
+     {
+        title:'Master Setup',
+        icon: Settings,
+        items: [
+            {
+                title: 'Template Management',
+                href: '/templates',
+                icon: Files,
+            }
+        ],
     }
     // {
     //     title: 'Main Modules',
