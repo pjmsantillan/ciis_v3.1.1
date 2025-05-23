@@ -14,7 +14,7 @@ class TemplateManagementController extends Controller
     public function index()
     {
         //
-         return Inertia::render('template-management/index');
+        return Inertia::render('template-management/index');
     }
 
     /**
@@ -23,7 +23,7 @@ class TemplateManagementController extends Controller
     public function create()
     {
         //
-         return Inertia::render('template-management/rich-text-editor/editor-create');
+        return Inertia::render('template-management/rich-text-editor/editor-create');
     }
 
     /**
@@ -32,7 +32,7 @@ class TemplateManagementController extends Controller
     public function store(Request $request)
     {
         //
-         $validated = $request->validate([
+        $validated = $request->validate([
             'title' => 'required',
             'content' => 'required'
         ]);
@@ -47,6 +47,9 @@ class TemplateManagementController extends Controller
     public function show(TemplateManagement $templateManagement)
     {
         //
+        return Inertia::render('template-management/rich-text-editor/editor-create', [
+            'TemplateManagement' => $templateManagement
+        ]);
     }
 
     /**
@@ -63,6 +66,13 @@ class TemplateManagementController extends Controller
     public function update(Request $request, TemplateManagement $templateManagement)
     {
         //
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'status' => 'required'
+        ]);
+        $templateManagement->update($validated);
+        return redirect()->route('templates.index')->with(['success', ' Updated successfully']);
     }
 
     /**
@@ -71,5 +81,8 @@ class TemplateManagementController extends Controller
     public function destroy(TemplateManagement $templateManagement)
     {
         //
+        $templateManagement->delete();
+
+        return redirect()->route('templates.index')->with(['success', 'Deleted successfully']);
     }
 }
